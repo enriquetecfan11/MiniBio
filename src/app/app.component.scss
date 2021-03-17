@@ -1,7 +1,5 @@
 @import "../styles";
 $mainShow: 0px 0px 20px 3px rgb(0 0 0 / 10%);
-$bgWhite: #ffff;
-
 .main-box {
   max-width: 380px;
   width: 100%;
@@ -23,7 +21,7 @@ $bgWhite: #ffff;
     margin-bottom: 13px;
   }
   p {
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 400;
     margin-top: 1px;
     margin-bottom: 1px;
@@ -31,12 +29,15 @@ $bgWhite: #ffff;
       font-size: 25px;
     }
   }
-  .card {
+  .box-item {
     background-color: $bgWhite;
     padding: 16px;
     box-shadow: $mainShow;
     margin: 20px;
     display: flex;
+    text-decoration: none;
+    color: $bgBlack;
+    transition: all 0.3s ease;
     fa-icon {
       font-size: 60px;
     }
@@ -51,6 +52,9 @@ $bgWhite: #ffff;
         text-align: left;
       }
     }
+    &:hover {
+      color: $bgGrey;
+    }
   }
 }
 
@@ -58,4 +62,33 @@ $bgWhite: #ffff;
   position: fixed;
   top: 10px;
   right: 10px;
+  border: 0px;
+  padding: 8px 24px;
+  background: $bgWhite;
+  border-radius: 22px;
+  transition: all 0.3s ease;
+  fa-icon {
+    font-size: 24px;
+  }
+  &:hover {
+    background-color: $bgBlack;
+    color: $bgWhite;
+  }
+}
+
+::ng-deep body.night {
+  background-color: $bgBlack;
+  transition: all 0.3s ease;
+}
+
+.main-box.dark {
+  color: $bgWhite;
+  .box-item {
+    background-color: $bgDarkBlue !important;
+    color: $bgWhite !important;
+  }
+  .btn-up {
+    color: $bgWhite !important;
+    background-color: $bgDarkBlue !important;
+  }
 }

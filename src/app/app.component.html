@@ -1,69 +1,22 @@
-<div class="main-box">
+<div class="main-box" [ngClass]="{'dark': isNightMode}">
   <img class="avatar" [src]="emoji" alt="MemojiTecfan" style="width:50%;">
 
   <h1>Enrique Rodriguez Vela 🧑‍💻</h1>
   <p>⬇️ All my official links are here ⬇️</p>
 
 
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="left-item">
-        <i class="fab fa-twitter fa-5x"></i>
-      </div>
-      <div class="right-item">
-        <div class="card-body">
-          <h5 class="card-title">Twitter</h5>
-          <p class="card-text">@enriquetecfan</p>
-        </div>
-      </div>
+  <a *ngFor="let network of socialNetworks" class="box-item" href="{{network.link}}">
+    <div class="left-item">
+      <fa-icon [icon]="network.image"></fa-icon>
     </div>
-  </div>
-
-
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="left-item">
-        <i class="fab fa-instagram fa-5x"></i>
-      </div>
-      <div class="right-item">
-        <div class="card-body">
-          <h5 class="card-title">Instagram</h5>
-          <p>@enriquetecfan</p>
-        </div>
-      </div>
+    <div class="right-item">
+      <p>{{network.title}}</p>
     </div>
-  </div>
+  </a>
 
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="left-item">
-        <i class="fab fa-github fa-5x"></i>
-      </div>
-      <div class="right-item">
-        <div class="card-body">
-          <h5 class="card-title">Github</h5>
-          <p>@enriquetecfan11</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="left-item">
-        <i class="fab fa-linkedin-in fa-5x"></i>
-      </div>
-      <div class="right-item">
-        <div class="card-body">
-          <h5 class="card-title">Linkedin</h5>
-          <p>Just like my name</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <button type="button" class="btn-up">
-    <i class="fas fa-star"></i>
+  <button type="button" class="btn-up" (click)="nightMode()">
+    <fa-icon *ngIf="!isNightMode" [icon]="moon"></fa-icon>
+    <fa-icon *ngIf="isNightMode" [icon]="sun"></fa-icon>
   </button>
 
 </div>
